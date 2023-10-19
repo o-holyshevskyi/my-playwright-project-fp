@@ -4,7 +4,7 @@ import { PageOf } from './pages';
 import * as TE from 'fp-ts/TaskEither';
 
 export interface LandingPage {
-    goto: (url: string) => TE.TaskEither<void, void>;
+    goto: (url?: string) => TE.TaskEither<void, void>;
     clickGetStarted: () => TE.TaskEither<void, void>;
     verifyTitle: (title: RegExp | string) => TE.TaskEither<void, void>;
     getStarted: GetStarted;
@@ -14,7 +14,13 @@ export const landingPage: PageOf<LandingPage> = (page) => {
     return {
         goto: (url): TE.TaskEither<void, void> => 
             TE.tryCatch(
-                async () => { await page.goto(url) },
+                async () => { 
+                    if (url) {
+                        await page.goto(url);
+                    } else {
+                        await page.goto('/');
+                    }
+                },
                 (error) => { throw new Error(error as string) }
             ),
         clickGetStarted: (): TE.TaskEither<void, void> => 
