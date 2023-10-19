@@ -4,5 +4,9 @@
     },
     "getStartedPage": {
         "installation": "Installation"
+    },
+    "todoPage": {
+        "newTodoItem": "What needs to be done?",
+        "addedTodoItems": "todo-title"
     }
 }

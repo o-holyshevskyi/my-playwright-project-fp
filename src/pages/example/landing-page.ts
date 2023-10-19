@@ -1,8 +1,9 @@
+import { base } from './../base';
 import { getStarted, GetStarted } from './get-started';
-import { expect } from '../../tests/fixtures/fixture';
-import { PageOf } from './pages';
+import { expect } from '../../../tests/fixtures/fixture';
+import { PageOf } from '../pages';
 import * as TE from 'fp-ts/TaskEither';
-import * as selectors from '../../selectors/selectors.json';
+import * as selectors from '../../../selectors/selectors.json';
 
 export interface LandingPage {
     goto: (url?: string) => TE.TaskEither<void, void>;
@@ -13,17 +14,7 @@ export interface LandingPage {
 
 export const landingPage: PageOf<LandingPage> = (page) => {
     return {
-        goto: (url): TE.TaskEither<void, void> => 
-            TE.tryCatch(
-                async () => { 
-                    if (url) {
-                        await page.goto(url);
-                    } else {
-                        await page.goto('/');
-                    }
-                },
-                (error) => { throw new Error(error as string) }
-            ),
+        goto: (url) => base(page).goto(url),
         clickGetStarted: (): TE.TaskEither<void, void> => 
             TE.tryCatch(
                 async () => page.getByRole('link', { name: selectors.landingPage.getStarted }).click(),
