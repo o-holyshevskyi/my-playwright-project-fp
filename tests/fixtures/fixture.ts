@@ -1,8 +1,8 @@
 import { test as base } from '@playwright/test';
-import { LandingPage, landingPage } from '../../src/pages/example/landing-page';
+import { LandingPage, landingPage } from '@pages/example/landing-page';
 import * as F from 'fp-ts/function';
-import * as testData from '../../test-data/toto-app.spec.json';
-import { TodoPage, todoPage } from '../../src/pages/todo/todo';
+import * as testData from '@testData/toto-app.spec.json';
+import { TodoPage, todoPage } from '@pages/todo/todo';
 
 type Fixture = {
     landingPage: LandingPage;

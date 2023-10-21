@@ -6,6 +6,14 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@fixture": ["./tests/fixtures/fixture.ts"],
+      "@testData/*": ["./test-data/*"],
+      "@selectors": ["./selectors/selectors.json"],
+      "@stepRunner": ["./src/lib/test-step-runner.ts"],
+      "@pages/*": ["./src/pages/*"]
+    }
   }
 }

@@ -1,9 +1,9 @@
-import { base } from './../base';
+import { base } from '@pages/base';
 import { getStarted, GetStarted } from './get-started';
-import { expect } from '../../../tests/fixtures/fixture';
-import { PageOf } from '../pages';
+import { expect } from '@fixture';
+import { PageOf } from '@pages/pages';
 import * as TE from 'fp-ts/TaskEither';
-import * as selectors from '../../../selectors/selectors.json';
+import * as selectors from '@selectors';
 
 export interface LandingPage {
     goto: (url?: string) => TE.TaskEither<void, void>;

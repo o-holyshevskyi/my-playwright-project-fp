@@ -7,6 +7,9 @@
     },
     "todoPage": {
         "newTodoItem": "What needs to be done?",
-        "addedTodoItems": "todo-title"
+        "addedTodoItems": "todo-title",
+        "todoCount": "todo-count",
+        "markAllAsComplete": "Mark all as complete",
+        "todoItem": "todo-item"
     }
 }

@@ -1,4 +1,4 @@
-import { PageOf } from './pages';
+import { PageOf } from '@pages/pages';
 import * as TE from 'fp-ts/TaskEither';
 
 export interface Base {
